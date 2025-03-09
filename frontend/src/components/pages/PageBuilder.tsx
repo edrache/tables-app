@@ -29,6 +29,7 @@ import { CSS } from '@dnd-kit/utilities'
 import type { PageBox } from '../../store/pageStore'
 import { createPortal } from 'react-dom'
 import { useTranslation } from 'react-i18next'
+import TagInput from '../common/TagInput'
 
 function Box({ box, tables, updateBoxTable, updateBoxTitle, removeBox, startEditingBox, borderRadius, gap, updateBoxColors, defaultBoxBackgroundColor, defaultBoxTextColor, defaultBoxBorderWidth, defaultBoxBorderColor, defaultBoxFontFamily, defaultBoxTitleFontFamily }: { 
   box: PageBox; 
@@ -258,9 +259,29 @@ const PageBuilder = () => {
   const { user } = useAuthStore()
   const [success, setSuccess] = useState(false)
   const [layout, setLayout] = useState<PageBox[]>([])
+  const [tags, setTags] = useState<string[]>([])
   
+  // Przekieruj do strony logowania, jeśli użytkownik nie jest zalogowany
+  useEffect(() => {
+    if (!user) {
+      navigate('/auth', { replace: true })
+    }
+  }, [user, navigate])
+
+  // Jeśli użytkownik nie jest zalogowany, nie renderuj komponentu
+  if (!user) {
+    return null
+  }
+
   const tables = getTables()
   const existingPage = slug ? getPageBySlug(slug) : null
+
+  // Sprawdź, czy użytkownik jest właścicielem strony przy edycji
+  useEffect(() => {
+    if (existingPage && existingPage.owner !== user.username) {
+      navigate('/pages')
+    }
+  }, [existingPage, user, navigate])
 
   const pageSchema = z.object({
     name: z.string().min(1, t('pages.editor.validation.nameRequired')),
@@ -279,7 +300,8 @@ const PageBuilder = () => {
     defaultBoxFontFamily: z.string().default('Arial, sans-serif'),
     defaultBoxTitleFontFamily: z.string().default('Arial, sans-serif'),
     colorPalette: z.array(z.string()).default([]),
-    useRandomColors: z.boolean().default(false)
+    useRandomColors: z.boolean().default(false),
+    tags: z.array(z.string()).default([])
   })
 
   type PageFormData = z.infer<typeof pageSchema>
@@ -399,8 +421,10 @@ const PageBuilder = () => {
         defaultBoxFontFamily: existingPage.defaultBoxFontFamily,
         defaultBoxTitleFontFamily: existingPage.defaultBoxTitleFontFamily,
         colorPalette: existingPage.colorPalette,
-        useRandomColors: existingPage.useRandomColors
+        useRandomColors: existingPage.useRandomColors,
+        tags: existingPage.tags || []
       })
+      setTags(existingPage.tags || [])
       // Dodaj pozycje do istniejących boxów jeśli ich nie mają
       const migratedLayout = existingPage.layout.map((box, index) => ({
         ...box,
@@ -435,7 +459,8 @@ const PageBuilder = () => {
       colorPalette: data.colorPalette,
       useRandomColors: data.useRandomColors,
       layout: layout,
-      owner: user.username
+      owner: user.username,
+      tags: tags
     }
 
     if (existingPage) {
@@ -1057,6 +1082,18 @@ const PageBuilder = () => {
                 </div>
               </div>
             )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              {t('pages.editor.tags')}
+            </label>
+            <TagInput
+              tags={tags}
+              onChange={setTags}
+              placeholder={t('pages.editor.tagsPlaceholder')}
+              className="border-gray-300"
+            />
           </div>
 
           <div className="flex justify-between items-center pt-4">

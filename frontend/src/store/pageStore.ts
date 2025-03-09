@@ -32,6 +32,7 @@ export interface Page {
   useRandomColors: boolean;
   layout: PageBox[];
   owner: string;
+  tags: string[];
 }
 
 interface PageState {

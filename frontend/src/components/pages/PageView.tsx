@@ -4,6 +4,8 @@ import { useTableStore } from '../../store/tableStore'
 import { useState, useEffect, useRef } from 'react'
 import type { Page, PageBox } from '../../store/pageStore'
 import { createPortal } from 'react-dom'
+import { useAuthStore } from '../../store/authStore'
+import { useTranslation } from 'react-i18next'
 
 const FitText = ({ children, className, style }: { children: React.ReactNode, className: string, style?: React.CSSProperties }) => {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -51,6 +53,8 @@ const PageView = () => {
   const navigate = useNavigate()
   const { getPageBySlug, updatePage } = usePageStore()
   const { getTableById, rollOnTable, getTables } = useTableStore()
+  const { user } = useAuthStore()
+  const { t } = useTranslation()
   const [rollResults, setRollResults] = useState<{[key: string]: string}>({})
   const tables = getTables()
 
@@ -289,12 +293,14 @@ const PageView = () => {
           >
             ☰
           </button>
-          <Link
-            to={`/page/${page.slug}/edit`}
-            className="inline-flex items-center px-2 py-1 border border-gray-300 rounded text-xs font-medium text-gray-700 bg-white hover:bg-gray-50"
-          >
-            Edytuj
-          </Link>
+          {user && user.username === page.owner && (
+            <Link
+              to={`/page/${page.slug}/edit`}
+              className="inline-flex items-center px-2 py-1 border border-gray-300 rounded text-xs font-medium text-gray-700 bg-white hover:bg-gray-50"
+            >
+              {t('common.edit')}
+            </Link>
+          )}
         </div>
       </div>
 

@@ -6,9 +6,28 @@ import { useTranslation } from 'react-i18next'
 const TableList = () => {
   const { getTables, rollOnTable } = useTableStore()
   const [rollResults, setRollResults] = useState<{[key: string]: string}>({})
+  const [selectedTags, setSelectedTags] = useState<string[]>([])
   const { t } = useTranslation()
   
   const tables = getTables()
+
+  // Zbierz wszystkie unikalne tagi
+  const allTags = Array.from(new Set(tables.flatMap(table => table.tags)))
+
+  // Filtruj tabele po wybranych tagach
+  const filteredTables = selectedTags.length > 0
+    ? tables.filter(table => 
+        selectedTags.every(tag => table.tags.includes(tag))
+      )
+    : tables
+
+  const toggleTag = (tag: string) => {
+    setSelectedTags(prev => 
+      prev.includes(tag)
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    )
+  }
 
   const handleRoll = (tableId: string) => {
     const result = rollOnTable(tableId)
@@ -47,8 +66,29 @@ const TableList = () => {
         </Link>
       </div>
 
+      {allTags.length > 0 && (
+        <div className="flex flex-wrap gap-2">
+          {allTags.map(tag => (
+            <button
+              key={tag}
+              onClick={() => toggleTag(tag)}
+              className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium transition-colors ${
+                selectedTags.includes(tag)
+                  ? 'bg-primary-100 text-primary-700 hover:bg-primary-200'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              }`}
+            >
+              {tag}
+              {selectedTags.includes(tag) && (
+                <span className="ml-1 text-primary-600">×</span>
+              )}
+            </button>
+          ))}
+        </div>
+      )}
+
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {tables.map(table => (
+        {filteredTables.map(table => (
           <div key={table.id} className="bg-white overflow-hidden shadow rounded-lg border border-gray-200">
             <div className="p-4">
               <h3 className="text-lg font-medium text-gray-900 mb-2">{table.name}</h3>
@@ -69,12 +109,6 @@ const TableList = () => {
                 >
                   {t('tables.roll')}
                 </button>
-                <Link
-                  to={`/table/${table.id}`}
-                  className="inline-flex items-center px-3 py-1.5 border border-gray-300 text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-                >
-                  {t('common.edit')}
-                </Link>
               </div>
             </div>
             

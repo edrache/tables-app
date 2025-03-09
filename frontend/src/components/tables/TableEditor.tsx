@@ -6,6 +6,7 @@ import { useAuthStore } from '../../store/authStore'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import { useTranslation } from 'react-i18next'
+import TagInput from '../common/TagInput'
 
 const TableEditor = () => {
   const navigate = useNavigate()
@@ -13,12 +14,12 @@ const TableEditor = () => {
   const { user } = useAuthStore()
   const [success, setSuccess] = useState(false)
   const [importContent, setImportContent] = useState('')
+  const [tags, setTags] = useState<string[]>([])
   const { t } = useTranslation()
 
   const tableSchema = z.object({
     name: z.string().min(1, t('tables.editor.validation.nameRequired')),
     description: z.string().min(1, t('tables.editor.validation.descriptionRequired')),
-    tags: z.array(z.string()),
     content: z.string().refine((val) => {
       const lines = val.split('\n')
       return lines.every(line => {
@@ -36,11 +37,7 @@ const TableEditor = () => {
   })
   
   const { register, handleSubmit, formState: { errors }, setValue } = useForm<z.infer<typeof tableSchema>>({
-    resolver: zodResolver(tableSchema),
-    defaultValues: {
-      tags: [],
-      content: ''
-    }
+    resolver: zodResolver(tableSchema)
   })
 
   const onSubmit = (data: z.infer<typeof tableSchema>) => {
@@ -65,7 +62,7 @@ const TableEditor = () => {
     addTable({
       name: data.name,
       description: data.description,
-      tags: data.tags,
+      tags: tags,
       items: items,
       owner: user.username
     })
@@ -202,6 +199,18 @@ const TableEditor = () => {
             {errors.description && (
               <p className="mt-1 text-sm text-red-600">{errors.description.message}</p>
             )}
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              {t('tables.editor.tags')}
+            </label>
+            <TagInput
+              tags={tags}
+              onChange={setTags}
+              placeholder={t('tables.editor.tagsPlaceholder')}
+              className="border-gray-300"
+            />
           </div>
 
           <div>
