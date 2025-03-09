@@ -1,0 +1,36 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create",
+    "loading": "Loading...",
+    "back": "Back",
+    "add": "Add",
+    "remove": "Remove",
+    "settings": "Settings"
+  },
+  "navigation": {
+    "home": "Home",
+    "pages": "Pages",
+    "tables": "Tables",
+    "myPages": "My Pages",
+    "newPage": "New Page",
+    "newTable": "New Table"
+  },
+  "home": {
+    "title": "RPG Random Tables Generator",
+    "subtitle": "Create, organize and share random tables for your RPG games. Design your own pages with tables in bento box layout.",
+    "tables": {
+      "title": "Random Tables",
+      "description": "Create tables with custom weights and probabilities. Perfect for random encounters, treasures, events and more.",
+      "create": "Create New Table"
+    },
+    "pages": {
+      "title": "Table Pages",
+      "description": "Organize your tables on personalized pages. Use bento box layout for better readability and access.",
+      "create": "Create New Page"
+    }
+  }
+} 

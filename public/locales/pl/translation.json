@@ -1,0 +1,36 @@
+{
+  "common": {
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "create": "Utwórz",
+    "loading": "Ładowanie...",
+    "back": "Wróć",
+    "add": "Dodaj",
+    "remove": "Usuń",
+    "settings": "Ustawienia"
+  },
+  "navigation": {
+    "home": "Strona główna",
+    "pages": "Strony",
+    "tables": "Tabele",
+    "myPages": "Moje Strony",
+    "newPage": "Nowa Strona",
+    "newTable": "Nowa Tabela"
+  },
+  "home": {
+    "title": "Generator Losowych Tabel RPG",
+    "subtitle": "Twórz, organizuj i udostępniaj tabele losowe dla swoich gier RPG. Projektuj własne strony z tabelami w układzie bento box.",
+    "tables": {
+      "title": "Tabele Losowe",
+      "description": "Twórz tabele z własnym systemem wag i prawdopodobieństw. Idealne dla losowych spotkań, skarbów, wydarzeń i więcej.",
+      "create": "Stwórz Nową Tabelę"
+    },
+    "pages": {
+      "title": "Strony z Tabelami",
+      "description": "Organizuj swoje tabele na spersonalizowanych stronach. Używaj układu bento box dla lepszej czytelności i dostępu.",
+      "create": "Stwórz Nową Stronę"
+    }
+  }
+} 

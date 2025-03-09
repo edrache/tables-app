@@ -1,0 +1,36 @@
+{
+    "name": "rpg-table-generator/backend",
+    "type": "project",
+    "description": "Backend API for RPG Table Generator",
+    "require": {
+        "php": "^8.1",
+        "slim/slim": "^4.11",
+        "slim/psr7": "^1.6",
+        "php-di/php-di": "^7.0",
+        "doctrine/dbal": "^3.6",
+        "firebase/php-jwt": "^6.4",
+        "vlucas/phpdotenv": "^5.5",
+        "monolog/monolog": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.0",
+        "phpstan/phpstan": "^1.10",
+        "squizlabs/php_codesniffer": "^3.7"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "phpstan": "phpstan analyse src tests",
+        "cs": "phpcs",
+        "cs-fix": "phpcbf"
+    }
+} 

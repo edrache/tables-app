@@ -1,0 +1,197 @@
+{
+  "common": {
+    "save": "Zapisz",
+    "cancel": "Anuluj",
+    "edit": "Edytuj",
+    "delete": "Usuń",
+    "create": "Utwórz",
+    "loading": "Ładowanie...",
+    "back": "Wróć",
+    "add": "Dodaj",
+    "remove": "Usuń",
+    "settings": "Ustawienia",
+    "view": "Otwórz",
+    "login": "Zaloguj",
+    "logout": "Wyloguj",
+    "error": {
+      "loginRequired": "Musisz być zalogowany aby utworzyć stronę"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Zaloguj się",
+      "username": "Nazwa użytkownika",
+      "password": "Hasło",
+      "submit": "Zaloguj",
+      "error": "Nieprawidłowa nazwa użytkownika lub hasło",
+      "error": {
+        "usernameRequired": "Nazwa użytkownika jest wymagana",
+        "passwordRequired": "Hasło musi mieć minimum 6 znaków"
+      }
+    },
+    "register": {
+      "title": "Zarejestruj się",
+      "username": "Nazwa użytkownika",
+      "password": "Hasło",
+      "confirmPassword": "Potwierdź hasło",
+      "submit": "Zarejestruj",
+      "error": {
+        "passwordMismatch": "Hasła nie są takie same",
+        "usernameTaken": "Ta nazwa użytkownika jest już zajęta"
+      }
+    }
+  },
+  "navigation": {
+    "home": "Strona główna",
+    "pages": "Strony",
+    "tables": "Tabele",
+    "myPages": "Moje Strony",
+    "myTables": "Moje Tabele",
+    "newPage": "Nowa Strona",
+    "newTable": "Nowa Tabela"
+  },
+  "home": {
+    "title": "Generator Losowych Tabel RPG",
+    "subtitle": "Twórz, organizuj i udostępniaj tabele losowe dla swoich gier RPG. Projektuj własne strony z tabelami w układzie bento box.",
+    "tables": {
+      "title": "Tabele Losowe",
+      "description": "Twórz tabele z własnym systemem wag i prawdopodobieństw. Idealne dla losowych spotkań, skarbów, wydarzeń i więcej.",
+      "create": "Stwórz Nową Tabelę"
+    },
+    "pages": {
+      "title": "Strony z Tabelami",
+      "description": "Organizuj swoje tabele na spersonalizowanych stronach. Używaj układu bento box dla lepszej czytelności i dostępu.",
+      "create": "Stwórz Nową Stronę"
+    }
+  },
+  "tables": {
+    "empty": {
+      "title": "Nie masz jeszcze żadnych tabel",
+      "description": "Stwórz swoją pierwszą tabelę losową!"
+    },
+    "myTables": "Moje Tabele",
+    "roll": "Losuj",
+    "rollResult": "Wynik",
+    "editor": {
+      "title": "Edytor Tabeli",
+      "name": "Nazwa",
+      "description": "Opis",
+      "content": "Zawartość (format: item:weight)",
+      "contentPlaceholder": "Przykład:\nMiecz:10\nTarcza:5\nHełm:3",
+      "import": {
+        "title": "Import z pliku",
+        "description": "Wklej zawartość pliku tekstowego w formacie:\nNAZWA TABELI 1\nrekord1:liczba\nrekord2:liczba\nNAZWA TABELI 2\nrekord1:liczba\n...",
+        "placeholder": "POTWORY LEŚNE\nWilk:10\nNiedźwiedź:5\nSKARBY\nZłoto:3\nKlejnoty:2",
+        "button": "Generuj Tabele"
+      },
+      "success": "Tabela została pomyślnie utworzona! Za chwilę zostaniesz przekierowany do listy tabel.",
+      "validation": {
+        "nameRequired": "Nazwa jest wymagana",
+        "descriptionRequired": "Opis jest wymagany",
+        "invalidFormat": "Nieprawidłowy format zawartości (item:weight)"
+      }
+    }
+  },
+  "pages": {
+    "empty": {
+      "title": "Nie masz jeszcze żadnych stron",
+      "description": "Stwórz swoją pierwszą stronę z tabelami!"
+    },
+    "myPages": "Moje Strony",
+    "notFound": {
+      "title": "Strona nie została znaleziona",
+      "description": "Strona o podanym adresie URL nie istnieje.",
+      "back": "Wróć do listy stron"
+    },
+    "details": {
+      "url": "URL",
+      "theme": "Motyw",
+      "boxCount": "Liczba boxów"
+    },
+    "editor": {
+      "title": "Edytor Strony",
+      "name": "Nazwa",
+      "description": "Opis",
+      "slug": "URL strony",
+      "theme": {
+        "label": "Motyw",
+        "default": "Domyślny",
+        "dark": "Ciemny",
+        "fantasy": "Fantasy",
+        "scifi": "Sci-Fi"
+      },
+      "settings": {
+        "title": "Ustawienia strony",
+        "borderRadius": "Zaokrąglenie rogów (px)",
+        "gap": "Odstęp między boxami (px)",
+        "showGrid": "Pokaż linie siatki",
+        "backgroundColor": "Kolor tła strony",
+        "boxSettings": {
+          "title": "Domyślne ustawienia boxów",
+          "backgroundColor": "Kolor tła",
+          "textColor": "Kolor tekstu",
+          "borderWidth": "Grubość ramki (px)",
+          "borderColor": "Kolor ramki",
+          "textSize": "Rozmiar tekstu w boxach (px)",
+          "textSizeRange": "(min: 8px, max: 200px)",
+          "fontFamily": {
+            "label": "Czcionka w boxach",
+            "default": "Arial (domyślny)",
+            "placeholder": "Wpisz nazwę fonta z Google Fonts",
+            "addFont": "Dodaj font",
+            "help": "Wpisz nazwę fonta z Google Fonts (np. \"Roboto\" lub \"Dancing Script\") i kliknij \"Dodaj font\""
+          },
+          "titleFontFamily": {
+            "label": "Czcionka tytułów w boxach",
+            "default": "Arial (domyślny)",
+            "placeholder": "Wpisz nazwę fonta z Google Fonts",
+            "addFont": "Dodaj font",
+            "help": "Wpisz nazwę fonta z Google Fonts (np. \"Roboto\" lub \"Dancing Script\") i kliknij \"Dodaj font\""
+          }
+        },
+        "colorPalette": {
+          "title": "Paleta kolorów",
+          "paste": "Wklej kod z Coolors.co",
+          "placeholder": "Wklej tutaj kod z Coolors.co...",
+          "useRandom": "Losuj kolory boxów z palety",
+          "preview": "Podgląd palety"
+        }
+      },
+      "layout": {
+        "title": "Układ strony",
+        "empty": {
+          "title": "Pusty układ",
+          "description": "Kliknij \"Dodaj Box\" i zaznacz obszar na siatce"
+        },
+        "addBox": "Dodaj Box",
+        "editBox": "Zaznacz nowy obszar dla boxa",
+        "selectArea": "Zaznacz obszar na siatce",
+        "cancel": "Anuluj",
+        "box": {
+          "settings": "Ustawienia",
+          "title": "Tytuł",
+          "titlePlaceholder": "Własny tytuł (opcjonalnie)",
+          "table": "Tabela",
+          "selectTable": "Wybierz tabelę",
+          "backgroundColor": "Kolor tła",
+          "textColor": "Kolor tekstu",
+          "position": "Zmień położenie boxa"
+        }
+      },
+      "actions": {
+        "save": "Zapisz Stronę",
+        "update": "Zapisz Zmiany"
+      },
+      "success": {
+        "created": "Strona została utworzona! Za chwilę zostaniesz do niej przekierowany.",
+        "updated": "Strona została zaktualizowana! Za chwilę zostaniesz do niej przekierowany."
+      },
+      "validation": {
+        "nameRequired": "Nazwa jest wymagana",
+        "descriptionRequired": "Opis jest wymagany",
+        "slugRequired": "URL jest wymagany",
+        "slugFormat": "URL może zawierać tylko małe litery, cyfry i myślniki"
+      }
+    }
+  }
+} 

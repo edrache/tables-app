@@ -1,0 +1,197 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "create": "Create",
+    "loading": "Loading...",
+    "back": "Back",
+    "add": "Add",
+    "remove": "Remove",
+    "settings": "Settings",
+    "view": "View",
+    "login": "Login",
+    "logout": "Logout",
+    "error": {
+      "loginRequired": "You must be logged in to create a page"
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Login",
+      "username": "Username",
+      "password": "Password",
+      "submit": "Login",
+      "error": "Invalid username or password",
+      "error": {
+        "usernameRequired": "Username is required",
+        "passwordRequired": "Password must be at least 6 characters long"
+      }
+    },
+    "register": {
+      "title": "Register",
+      "username": "Username",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "submit": "Register",
+      "error": {
+        "passwordMismatch": "Passwords do not match",
+        "usernameTaken": "This username is already taken"
+      }
+    }
+  },
+  "navigation": {
+    "home": "Home",
+    "pages": "Pages",
+    "tables": "Tables",
+    "myPages": "My Pages",
+    "myTables": "My Tables",
+    "newPage": "New Page",
+    "newTable": "New Table"
+  },
+  "home": {
+    "title": "RPG Random Tables Generator",
+    "subtitle": "Create, organize and share random tables for your RPG games. Design your own pages with tables in bento box layout.",
+    "tables": {
+      "title": "Random Tables",
+      "description": "Create tables with custom weights and probabilities. Perfect for random encounters, treasures, events and more.",
+      "create": "Create New Table"
+    },
+    "pages": {
+      "title": "Table Pages",
+      "description": "Organize your tables on personalized pages. Use bento box layout for better readability and access.",
+      "create": "Create New Page"
+    }
+  },
+  "tables": {
+    "empty": {
+      "title": "You don't have any tables yet",
+      "description": "Create your first random table!"
+    },
+    "myTables": "My Tables",
+    "roll": "Roll",
+    "rollResult": "Result",
+    "editor": {
+      "title": "Table Editor",
+      "name": "Name",
+      "description": "Description",
+      "content": "Content (format: item:weight)",
+      "contentPlaceholder": "Example:\nSword:10\nShield:5\nHelmet:3",
+      "import": {
+        "title": "Import from file",
+        "description": "Paste text file content in format:\nTABLE NAME 1\nitem1:weight\nitem2:weight\nTABLE NAME 2\nitem1:weight\n...",
+        "placeholder": "FOREST MONSTERS\nWolf:10\nBear:5\nTREASURES\nGold:3\nGems:2",
+        "button": "Generate Tables"
+      },
+      "success": "Table has been created successfully! You will be redirected to the tables list.",
+      "validation": {
+        "nameRequired": "Name is required",
+        "descriptionRequired": "Description is required",
+        "invalidFormat": "Invalid content format (item:weight)"
+      }
+    }
+  },
+  "pages": {
+    "empty": {
+      "title": "You don't have any pages yet",
+      "description": "Create your first table page!"
+    },
+    "myPages": "My Pages",
+    "notFound": {
+      "title": "Page not found",
+      "description": "The page with this URL does not exist.",
+      "back": "Back to pages list"
+    },
+    "details": {
+      "url": "URL",
+      "theme": "Theme",
+      "boxCount": "Box count"
+    },
+    "editor": {
+      "title": "Page Editor",
+      "name": "Name",
+      "description": "Description",
+      "slug": "Page URL",
+      "theme": {
+        "label": "Theme",
+        "default": "Default",
+        "dark": "Dark",
+        "fantasy": "Fantasy",
+        "scifi": "Sci-Fi"
+      },
+      "settings": {
+        "title": "Page Settings",
+        "borderRadius": "Border radius (px)",
+        "gap": "Gap between boxes (px)",
+        "showGrid": "Show grid lines",
+        "backgroundColor": "Page background color",
+        "boxSettings": {
+          "title": "Default Box Settings",
+          "backgroundColor": "Background color",
+          "textColor": "Text color",
+          "borderWidth": "Border width (px)",
+          "borderColor": "Border color",
+          "textSize": "Box text size (px)",
+          "textSizeRange": "(min: 8px, max: 200px)",
+          "fontFamily": {
+            "label": "Box font",
+            "default": "Arial (default)",
+            "placeholder": "Enter Google Fonts name",
+            "addFont": "Add font",
+            "help": "Enter a Google Fonts name (e.g. \"Roboto\" or \"Dancing Script\") and click \"Add font\""
+          },
+          "titleFontFamily": {
+            "label": "Box title font",
+            "default": "Arial (default)",
+            "placeholder": "Enter Google Fonts name",
+            "addFont": "Add font",
+            "help": "Enter a Google Fonts name (e.g. \"Roboto\" or \"Dancing Script\") and click \"Add font\""
+          }
+        },
+        "colorPalette": {
+          "title": "Color Palette",
+          "paste": "Paste code from Coolors.co",
+          "placeholder": "Paste your Coolors.co code here...",
+          "useRandom": "Use random colors from palette",
+          "preview": "Palette preview"
+        }
+      },
+      "layout": {
+        "title": "Page Layout",
+        "empty": {
+          "title": "Empty Layout",
+          "description": "Click \"Add Box\" and select an area on the grid"
+        },
+        "addBox": "Add Box",
+        "editBox": "Select new area for box",
+        "selectArea": "Select area on grid",
+        "cancel": "Cancel",
+        "box": {
+          "settings": "Settings",
+          "title": "Title",
+          "titlePlaceholder": "Custom title (optional)",
+          "table": "Table",
+          "selectTable": "Select table",
+          "backgroundColor": "Background color",
+          "textColor": "Text color",
+          "position": "Change box position"
+        }
+      },
+      "actions": {
+        "save": "Save Page",
+        "update": "Save Changes"
+      },
+      "success": {
+        "created": "Page has been created! You will be redirected shortly.",
+        "updated": "Page has been updated! You will be redirected shortly."
+      },
+      "validation": {
+        "nameRequired": "Name is required",
+        "descriptionRequired": "Description is required",
+        "slugRequired": "URL is required",
+        "slugFormat": "URL can only contain lowercase letters, numbers and hyphens"
+      }
+    }
+  }
+} 
